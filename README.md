@@ -5,7 +5,8 @@ This Functional HTML is use for Selkies 2.0.0 project .
 Make lazy and easy to add the parameter. Typing less , wrong less MAY BE !
 
 # Files
-Only 1 html file , run on the web browser. 
+Only 1 html file , run on the web browser.
+Use it on live  , [click](https://bigistudio.github.io/selkies-2.0.0-click-and-add-referernce/).
 
 ## Screenshot
 <img width="1252" height="582" alt="reademe" src="https://github.com/user-attachments/assets/0095ae54-2ee6-40f6-a447-19dd35155813" />
