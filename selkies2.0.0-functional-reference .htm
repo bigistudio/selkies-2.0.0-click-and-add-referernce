@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Selkies Project Settings Reference Release 2.0.0 functional HTML</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #111111;
+  color: #333;
+  padding: 2px 0 8px 0;
+  margin: 0;
+}
+
+.grid-container{
+	display:grid;
+	grid-template-columns: minmax(150px, 1fr) 2.5fr;
+	gap: 1 em;
+	padding: min(2% , 3%);
+	height: 100vh;
+}
+
+.selkiesicon{
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+
+}
+
+.gradient-text {
+ 
+  font-size: 1.4rem;
+  font-weight: bold;
+  /* set background  */
+  background-image: linear-gradient(to bottom, #d5499a, #725caf);
+  
+  /* make text to mask */
+  background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* change text to transparent */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.grid-container-left,.grid-container-right{
+  height: 100%;          
+  overflow-y: auto;      
+  scrollbar-gutter: stable;
+  	height: 100vh;
+}
+
+
+.grid-container-left::-webkit-scrollbar,.grid-container-right::-webkit-scrollbar {
+    width: 0.8em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
+.grid-container-left .headerword{
+ text-box: trim-both cap text;
+  font-size: 13px;
+  min-width:60%;
+  color: #dddddd;
+  }
+
+.offical{
+  color: #f2f2f2;
+  font-size: 85%;
+}
+
+.noline {  color: #d5499a}  
+a:link {
+  text-decoration: none;}
+
+#myText{
+    display: inline-block;
+    width: 95%;
+    padding: min(3 em);
+	padding-top:4px;
+    border: 2px solid #d5499a;
+    box-sizing: border-box;
+    background: #f2f2f2;
+    margin: 0.5em 0;
+}
+
+#myText:focus {
+  border: 5px solid #d5499a;
+}
+
+input:focus {
+  border: 5px solid #d5499a;
+}
+.clearbutton{
+	margin-left:3px;
+}
+
+.finalcommand{
+  text-wrap: balance;
+  field-sizing: content;
+  max-width: 95%;
+  background: #444444;
+  color: white;
+  font-size: 0.9rem;
+  padding: 7px 0px 7px 7px;
+}
+
+.accordionsyntax{
+	max-width: 70%;
+	max-height: 80%;
+	background: rgba(58,58,58,0.76);
+	color: #eaeaea;
+	backdrop-filter:blur(10px);
+}
+
+.accordionsyntax button.iconx {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: sticky;
+  top: 1%;
+  left: calc(100vw - 15px);
+  outline: 0;
+  font-size:2rem;
+  color: rgba(213,73,154,0.9);
+}
+button.valuesynatx {
+  background-color: rgb(20, 115, 230);
+  padding: 0.5rem 1.3rem;
+  margin-bottom:4px;
+  border-radius: 0.6rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+@media only screen and (max-width: 730px) {
+  button.valuesynatx {
+	  background-color: rgb(20, 115, 230);
+	  padding: 4px 9px ;
+	  margin-bottom:4px;
+	  border-radius: 0.6rem;
+	  border: none;
+	  color: #fff;
+	  cursor: pointer;
+	}
+}
+button.valuesynatx:hover {
+  background-color: rgb(213,73,154);
+}
+popoversummary {
+  padding: 13px;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: #aaaaaa;
+}
+dialog p {
+	padding: 1% 3% 0 3%;
+	font-size: 14px;
+	color: #cccccc;
+	line-height: 1.5;
+}
+dialog ul{
+	font-size: 1rem;
+	font-weight: 700;
+	color: #cccccc;
+	padding:12px 0 1px 4%;
+}
+dialog li {
+  padding: 1% 3% 5px 1%;
+  font-size: 0.85rem;
+  color: #cccccc;
+  line-height: 1.5;
+}
+.grid-container-right .navgroup {
+  Display:flex;
+  flex-wrap:wrap;
+  width: 70%;
+  gap:8px;
+  justify-content:flex-start;
+  color: white;
+    backdrop-filter:blur(10px);
+   padding-right:2px;
+  padding-bottom:2px;
+  position:fixed;
+  z-index:1;
+}
+.actbutton{
+
+  background-color: rgba(213,73,154);
+  margin-bottom:4px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+@media only screen and (max-width: 730px) {
+	.actbutton{
+      background-color: rgba(213,73,154);
+	  margin-bottom:4px;
+	  padding: 4px 9px;
+	  border-radius: 0.6rem;
+	  border: none;
+	  color: #fff;
+	  cursor: pointer;
+	}
+}
+.navgroup button{
+  background-color: #d5499a;
+  margin-bottom:3px;
+  padding: 0.2rem 1.1rem;
+  border-radius: 0.6rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1401px) {
+	.navgroup button{
+	  background-color: #d5499a;
+	  margin-bottom:4px;
+	  padding: 0.2rem 1.05rem;
+	  border-radius: 0.6rem;
+	  border: none;
+	  color: #fff;
+	  cursor: pointer;
+	  font-size:1 rem;
+  }
+}
+
+.grouping {
+  font-size: 14px;
+  font-weight: 600;
+  align-content:center;
+  background-color: #111111;
+  padding: 10px 10px 10px 5px;
+}
+
+.usage{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  padding-top:4.65rem;
+}
+@media only screen and (max-width: 1181px) {
+.usage{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  padding-top:6rem;
+}
+}
+@media only screen and (max-width: 841px) {
+.usage{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  padding-top: 9.5rem;
+}
+}
+@media only screen and (max-width: 569px) {
+.usage{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  padding-top: 11.6rem;
+}
+}	
+.Steam,.Audio,.Display,.Backends,.Input,.Session-start,.Clipboard-files-and-printing,
+.Webcam,.Sharing,.Client-interface,.Server,.WebRTC-and-TURN,.Recording-audit-and-metrics {
+  backdrop-filter:blur(10px);
+  width: clamp(23%,49%,100%);
+  margin: 11px auto 5px auto ;
+  justify-content: space-evenly;
+  background-color: rgba(88,88,88,0.2);
+  color: #dddddd;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 30px 30px 0px;
+  flex-grow: 1;
+  &:hover {
+	box-shadow: 2px 2px 10px #ffffff;
+	}
+}
+@media only screen and (min-width: 1301px) {
+.Steam,.Audio,.Display,.Backends,.Input,.Session-start,.Clipboard-files-and-printing,
+.Webcam,.Sharing,.Client-interface,.Server,.WebRTC-and-TURN,.Recording-audit-and-metrics {
+  backdrop-filter:blur(10px);
+  width: clamp(23%,30%,31%);
+  margin: 11px auto 5px auto ;
+  justify-content: space-evenly;
+  background-color: rgba(88,88,88,0.2);
+  color: #dddddd;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 30px 30px 0px;
+  flex-grow: 1;
+	}
+&:hover {
+	box-shadow: 2px 2px 10px #ffffff;
+	}
+}
+
+
+.resu {  
+  text-align: center;
+  max-width: 95%;
+  padding: 11px 10% ;
+  margin: 3px auto;
+  background-color: #adadad;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.setting {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 10px 1px 10px;
+  text-box: trim-both cap text;
+}
+
+.Defaultvalue {
+  font-size: 0.9rem;
+  color: #d5499a;
+  font-weight: 700;
+  text-box: trim-start cap alphabetic;
+}
+
+.value-list {
+  padding: 0 0 1px 18px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.lichoices{
+	padding-bottom:2px;
+}
+.addbutton{
+	padding: 0px 8px 0px 8px;
+}
+.addbutton:hover{
+	padding: 0px 8px 0px 20px;
+}
+.Description{
+	display:block;
+	line-height:1.5;
+	font-size:0.85rem;
+	padding: 9px 15px 9px 16px;
+}
+.Descriptiontitle {
+	background-color:rgba(199,199,199,0.4);
+	border-radius: 0px 30px 30px 0px;
+	font-size: 0.9rem;
+	width:95%;
+	margin-bottom:5px;
+}
+.typerange{
+	max-width:100px;
+	border-color: #d5499a;
+}
+
+.maker {
+  font-size: 0.8rem;
+  color: rgba(20, 115, 230);
+  text-align: center;
+  margin: 0;
+  font-weight:700;
+}
+.resu {  
+  text-align: center;
+  max-width: 95%;
+  padding: 11px 40% ;
+  margin: 3px auto;
+  background-color: #adadad;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.thelast{
+	color:white;
+	font-size:0.9rem;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+
+<div class="grid-container">
+ <div id="grid-left" class="grid-container-left">
+  <img class="selkiesicon" src="data:image/png;base64,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" >
+  <h3><span class="gradient-text">Selkies</span></h3>
+  <p class="offical"><strong>Project Settings Reference</strong><br>Release 2.0.0<br><a href="https://docs.selkies.io/latest/settings"  class="noline">Visit Offical</a></p>
+  	
+	<button popovertarget="mypopover" class="valuesynatx">About Value syntax</button>
+	  
+	<br>
+  <label class="headerword">Select or <br> type parameter: 
+  <input class="typepara" id="myText" placeholder="type here"/  >
+  <button id="mySubmit" onclick="fntypetocommandline('myText')">add</button></label>
+
+  <p class="headerword">Below show the command + parameter </p>
+	
+
+  <button class="clearbutton" id="clearSubmit" onclick="fnclearcommandline()">clear all</button>
+  <p class="finalcommand" id="mycommand">selkies </p>
+
+ </div>
+
+
+ <div class="grid-container-right">
+
+	<div class="navgroup">
+	  <button id="Steam" onclick="showhidegroup('Steam');changegroupselectcolor('Steam');">#Steam</button>
+	  <button id="Audio" onclick="showhidegroup('Audio');changegroupselectcolor('Audio');">#Audio</button>
+
+	  <button id="Display" onclick="showhidegroup('Display');changegroupselectcolor('Display');">#Display</button>
+	  <button id="Backends" onclick="showhidegroup('Backends');changegroupselectcolor('Backends');">#Backends</button>
+
+	  <button id="Session-start" onclick="showhidegroup('Session-start');changegroupselectcolor('Session-start');">#Session start</button>
+	  <button id="Input" onclick="showhidegroup('Input');changegroupselectcolor('Input');">#Input</button>
+	  <button id="Clipboard-files-and-printing" onclick="showhidegroup('Clipboard-files-and-printing');changegroupselectcolor('Clipboard-files-and-printing');">#Clipboard, files, and printing</button>
+	  <button id="Webcam" onclick="showhidegroup('Webcam');changegroupselectcolor('Webcam');">#Webcam</button>
+	  <button id="Sharing" onclick="showhidegroup('Sharing');changegroupselectcolor('Sharing');">#Sharing</button>
+	  <button id="Client-interface" onclick="showhidegroup('Client-interface');changegroupselectcolor('Client-interface');">#Client interface</button>
+	  <button id="Server" onclick="showhidegroup('Server');changegroupselectcolor('Server');">#Server</button>
+	  <button id="WebRTC-and-TURN" onclick="showhidegroup('WebRTC-and-TURN');changegroupselectcolor('WebRTC-and-TURN');">#WebRTC and TURN</button>
+	  <button id="Recording-audit-and-metrics" onclick="showhidegroup('Recording-audit-and-metrics');changegroupselectcolor('Recording-audit-and-metrics');">#Recording, audit, and metrics</button>
+	   	
+	</div>
+	<dialog id="mypopover" class="accordionsyntax" popover>
+		<button popovertarget="mypopover" popovertargetaction="hide" class="iconx">✖</button>
+		<summary class="popoversummer" ><strong>Settings Reference</strong></summary>
+		<p><strong>Every command-line option and environment variable of the selkies server, with its type and default.</strong></p>
+		<p>Every setting below is one entry of SETTING_DEFINITIONS in src/selkies/settings.py, which is also what selkies --help prints. Each one is read with the precedence command-line flag > SELKIES_<NAME> environment variable > fallback environment variable (where one is listed) > built-in default. The flag accepts both spellings, --my-setting and --my_setting, and a bool flag takes a value (--enable-resize=false) or stands alone for true (--public). A flag or variable set to an empty value means the built-in default; an unknown flag is ignored with a warning, never an error.</p>
+			<p>The settings are grouped by what they govern, the ones a deployment reaches for first at the top of each group. The stream settings are the client's to choose from the dashboard, and a deployment sets them only to narrow the menu or to lock a single value; see Usage for how a locked value reads.</p>
+		<ul><strong>Value syntax</strong>
+		<li>List/enum (e.g. SELKIES_ENCODER="jpeg,h264enc"): first item is the default, the full list is the allowed options; a single value locks the choice. Invalid items are dropped; an entirely-invalid override keeps the full built-in menu and default.</li>
+		<li>Bool (case-insensitive): "true"/"1" is on, anything else off, and a bare flag (--public) is on; a "|locked" suffix (e.g. "true|locked") forbids the client changing it.</li>
+		<li>Range: "8-240" restricts the allowed span (initial value = built-in default, clamped in); a bare value "60" keeps the built-in span and makes it the initial value, widening the span if it falls outside (so legacy fixed-value configs still resolve); "60,8-240" sets initial and span in one value; a degenerate span "60-60" locks the setting.</li>
+		<li>An override set to "" means "use the built-in default"; list types keep their explicit ""/"none" = disable semantics.</li>
+		</ul>
+		<H2>&ensp;&ensp;Group<H2>
+		<ul>
+		<strong>Stream</strong>
+		<li>The video encoder and its rate control. The dashboard chooses among what the server allows.</li>
+		<strong>Audio</strong>
+		<li>Server-to-client audio and the microphone uplink.</li>
+		<strong>Display</strong>
+		<li>Resolution, scaling, cursors, and the second display.</li>
+		<strong>Backends</strong>
+		<li>The X11 or Wayland capture backend and the GPU it renders on.</li>
+		<strong>Session start</strong>
+		<li>What a session starts with, and hooks around its first and last client.</li>
+		<strong>Input</strong>
+		<li>Gamepads, keyboard chords, and the input devices published to the session.</li>
+		<strong>Clipboard, files, and printing</strong>
+		<li>What leaves and enters the session besides the stream.</li>
+		<strong>Webcam</strong>
+		<li>The camera uplink and the virtual V4L2 device it is published as.</li>
+		<strong>Sharing</strong>
+		<li>Viewer and player links for a session without provisioned tokens.</li>
+		<strong>Client interface</strong>
+		<li>What the shipped web interface shows; the feature behind a hidden control keeps working.</li>
+		<strong>Server</strong>
+		<li>The transport, the listening address, TLS, the login, and the master token.</li>
+		<strong>WebRTC and TURN</strong>
+		<li>The opt-in WebRTC transport's ICE, STUN and TURN configuration.</li>
+		<strong>Recording, audit, and metrics</strong>
+		<li>The recording tap, the audit webhook and the metrics endpoints.</li>
+		</ul>		
+	</dialog>
+	<div class="usage" id="app"></div>
+ </div>
+</div>
+
+
+<script>
+
+
+
+function showhidegroup(whichclass){		
+	var element = document.getElementsByClassName(whichclass);
+	for (let i = 0; i < element.length ; i++){
+	element[i].hidden = !element[i].hidden;}
+}
+
+function changegroupselectcolor(useid){
+	var gname = document.getElementById(useid);
+ 	var gprefix = gname.textContent.slice(0, 1);
+    var gtext = gname.textContent.slice(1);
+
+	if (gprefix == "#") {
+		gname.textContent = "+" + gtext;
+		gname.style.backgroundColor = "white";
+		gname.style.color = "black";  
+		 } 
+	else if (gprefix == "+") {
+		gname.textContent = "#" + gtext;
+		gname.style.backgroundColor = "#d5499a";
+		gname.style.color = "white";  } 
+}
+
+function changebuttontext(useid) {
+ var element = document.getElementById(useid);
+  var prefix = element.textContent.slice(0, 4);
+  var text = element.textContent.slice(4);
+
+  if (prefix == "show") {
+    element.textContent = "hide" + text;
+    element.style.backgroundColor = "#2073e6";
+    element.style.color = "white";
+  } else if (prefix == "hide") {
+    element.textContent = "show" + text;
+    element.style.backgroundColor = "#d5499a";
+	element.style.color = "white";
+  }
+}
+
+function changeusedtext(useid) {
+ var element = document.getElementById(useid);
+  var prefix = element.textContent.slice(0, 3);
+  var text = element.textContent.slice(3);
+
+  if (prefix == "add") {
+    element.textContent = "delete";
+    element.style.backgroundColor = "#d5499a";
+    element.style.color = "white";
+
+  } else if (prefix == "del") {
+    element.textContent = "add";
+    element.style.backgroundColor = "white";
+	element.style.color = "black";
+
+	fnclearcommandline2(useid);
+  }
+}
+
+function fnChoices(Choicesadd , whatsetting) {
+  return `
+	<ul class="value-list">
+	<p><strong>Choices</strong></p>
+
+	${Choicesadd.map(Choice => `<li class="lichoices">
+	<button class="addbutton" id="${whatsetting[0]}=${Choice}" 
+	onclick="paramaddtocommandline('${whatsetting[0]}=${Choice}');changeusedtext('${whatsetting[0]}=${Choice}')">add
+	</button>&ensp; ${Choice}</li>`).join("")}
+	</ul>`;
+}
+
+function fnChoicestype(Choicestypeadd , whatsetting , whatrange) {
+  return `
+	<ul class="value-list">
+	<p><strong>Choices</strong></p>
+	<p>${whatrange[0]}</p>
+	${Choicestypeadd.map(Choicetype => `<li class="lichoices">
+	<button class="addbutton" id="${whatsetting[0]}=" 
+	onclick="fntypeandparamtocommandline('${whatsetting[0]}=','${whatsetting[0]}');
+	changeusedtext('${whatsetting[0]}=');">add
+	</button>&ensp; <input id="${whatsetting[0]}" class="typerange" placeholder="type"/  ></li>`).join("")}
+	</ul>`;
+}
+
+function fntypeandparamtocommandline(useid , typeid){
+	var clicker = document.getElementById(useid).id;
+	var typer = document.getElementById(typeid).value; 
+	document.getElementById("mycommand").insertAdjacentHTML("beforeend",`<span class='${clicker}'>${clicker}${typer} </span>`)
+	document.getElementById(typeid).value="";
+}
+
+	
+function fntypetocommandline(useid){
+	var typer = document.getElementById(useid).value;
+    document.getElementById("mycommand").insertAdjacentHTML("beforeend",`${typer} ` );
+ 	document.getElementById(useid).value="";
+	document.getElementById(useid).focus();
+}
+
+function paramaddtocommandline(useid){
+	 var clicker = document.getElementById(useid).id;
+	 document.getElementById("mycommand").insertAdjacentHTML("beforeend",`<span class='${clicker}'>${clicker} </span>`)
+}
+	
+function fnclearcommandline2(useid){
+	var elements=document.getElementsByClassName(useid);
+	while (elements.length) {
+	elements.item(0).remove()
+	}
+}
+
+
+function paramTemplate(para) {
+  return `
+    <div class=${para.group}>
+	<span align="center" class="grouping">Group #${para.group}</span>
+    <p class="setting">${para.setting[0]}<br> ${para.setting[1]} 
+	${para.setting[2] ? `<br>${para.setting[2]}` : "" }
+	${para.setting[3] ? `<br>${para.setting[3]}` : "" }
+	${para.setting[4] ? `<br>${para.setting[4]}` : "" }
+
+	<br><span class="Defaultvalue">Default value: ${para.Default}</span>
+	<br><br>Value = ${para.Choicetype}</p>
+	${para.Choicetype[0] ==="enum: one of" ? fnChoices(para.Choice, para.setting) : ""}
+	${para.Choicetype[0] ==="list" ? fnChoices(para.Choice, para.setting) : ""}
+	${para.Choicetype[0] ==="bool" ? fnChoices(para.Choice, para.setting) : ""}
+	
+	${para.Choicetype[0] ==="range" ? fnChoicestype(para.Choicetype, para.setting , para.Choice) : ""}
+	${para.Choicetype[0] ==="float" ? fnChoicestype(para.Choicetype, para.setting , para.Choice) : ""}
+	${para.Choicetype[0] ==="str" ? fnChoicestype(para.Choicetype, para.setting , para.Choice) : ""}
+	${para.Choicetype[0] ==="int" ? fnChoicestype(para.Choicetype, para.setting , para.Choice) : ""}
+	<details><summary class="Descriptiontitle"><strong>Description:</strong></summary>
+    <div class="Description"> ${para.Description}</div></details>
+    </div>
+  `;
+}
+
+function fnclearcommandline(){
+	document.getElementById("mycommand").innerHTML = "selkies ";
+}
+	
+function readtheparamData(){
+document.getElementById("app").innerHTML = `
+  ${paramData.map(paramTemplate).join("")
+}
+
+<div class="resu">Total Parament (${paramData.length} results)<br>
+<span><a href="https://github.com/bigistudio/selkies-2.0.0-click-and-add-referernce" class="maker">Maker bigi@github</a></span></div>
+<div><span class="thelast">This functional HTML Last update on 2026-Oct-11 , base on selkies release 2.0.0, Please visit offical web for the latest updates.</span><div>
+
+`;
+}
+
+
+
+
+
+
+
+const paramData = [
+  {
+    group: "Steam",
+    setting: ["--encoder", "SELKIES_ENCODER"],
+	Default: "h264enc",
+	Choicetype: ["enum: one of"],
+    Choice: ["h264enc", "h265enc", "vp8enc", "vp9enc", "av1enc", "h264enc-striped", "jpeg"],
+    Description: "The default video encoder. Every full-frame encoder runs on NVENC or VA-API where the GPU carries the codec and falls back to the software encoder pixelflux was built with: h264enc (x264, or OpenH264 in a GPL-free build), h265enc (x265, or kvazaar in a GPL-free build), vp8enc and vp9enc (libvpx), av1enc (SVT-AV1). h264enc-striped is CPU-striped H.264, jpeg is CPU-striped JPEG. Clients are offered only the encoders this host serves: those whose codec the encode node's GPU encodes (probed once at startup) or the pixelflux build carries a software encoder for. A client whose browser cannot decode the codec steps through the allowed encoders it does decode, taking the codecs this host encodes in hardware, most efficient first, before those it encodes in software, in order of encode time, then h264enc-striped, and jpeg last of all. The WebRTC transport carries the full-frame encoders and offers them in the same order behind the display's codec, so a browser that declines the codec answers with the next one it decodes and the display moves to it; h264enc-striped and jpeg are WebSocket-only."
+  },
+  {
+    group: "Steam",
+    setting: ["--video-fullcolor", "SELKIES_VIDEO_FULLCOLOR"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Encode with 4:4:4 chroma rather than 4:2:0 where the codec and encoder carry it (H.264 and H.265 on NVENC, VA-API, x264, and x265; VP9 profile 1 on VA-API and libvpx); other codecs and encoders stay 4:2:0. The server knows which of its encoders carry it on this host, so a client whose decoder has no 4:4:4 profile turns it off for itself only where the stream would carry it, whether it or this default asked for it, and streams 4:2:0 on the same codec; where it is locked on, such a client steps over WebSockets to the next allowed encoder whose 4:4:4 it decodes or that has none, and to JPEG last, and reports the stream over WebRTC. A WebRTC client names the 4:4:4 it decodes in its hello, so its first offer already fits it."
+  },
+  {
+    group: "Steam",
+    setting: ["--framerate", "SELKIES_FRAMERATE"],
+	Default: "60",
+	Choicetype: ["range"],
+    Choice: ["within 8-240"],
+    Description: "Framerate: allowed range (e.g., \"8-240\"), initial value (e.g., \"60\"), or both (\"60,8-240\"); \"60-60\" locks."
+  },
+  {
+    group: "Steam",
+    setting: ["--video-bitrate", "SELKIES_VIDEO_BITRATE"],
+	Default: "8000",
+	Choicetype: ["range"],
+    Choice: ["within 100-1000000"],
+    Description: "Video bitrate aka CBR, in kilobits per second (kbps): allowed range (e.g., \"100-1000000\"), initial value (e.g., \"8000\" for 8 Mbps, \"250\" for 250 kbps), or both (\"8000,100-1000000\"); \"8000-8000\" locks."
+  },
+  {
+    group: "Steam",
+    setting: ["--video-crf", "SELKIES_VIDEO_CRF"],
+	Default: "25",
+	Choicetype: ["range"],
+    Choice: ["within 5-50"],
+    Description: "Video CRF (constant quality): allowed range (e.g., \"5-50\"), initial value (e.g., \"25\"), or both (\"25,5-50\"); \"25-25\" locks."
+  },
+  {
+    group: "Steam",
+    setting: ["--rate-control-mode", "SELKIES_RATE_CONTROL_MODE"],
+	Default: "crf",
+	Choicetype: ["enum: one of"],
+    Choice: ["cbr", "crf"],
+    Description: "Rate control mode for the video encoders (crf = constant quality/QP, cbr = constant bitrate). Honored for every video encoder when enable_rate_control is true (the default)."
+  },
+  {
+    group: "Steam",
+    setting: ["--enable-rate-control", "SELKIES_ENABLE_RATE_CONTROL"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Honor the client-selected rate_control_mode (crf/cbr). Enabled by default so both modes are selectable; set false to lock the encoder to its built-in default."
+  },  
+  {
+    group: "Steam",
+    setting: ["--congestion-control", "SELKIES_CONGESTION_CONTROL"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Adapt the video bitrate to the transport-wide-cc (GCC-style) bandwidth estimate from WebRTC receiver feedback. Effective in CBR rate-control mode; may trade quality/stability for congestion responsiveness."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--keyframe-interval", "SELKIES_KEYFRAME_INTERVAL"],
+	Default: "0.0",
+	Choicetype: ["float"],
+    Choice: ["0.0 to 300.0"],
+    Description: "Seconds between scheduled video recovery keyframes (any video codec). 0 (default) keeps the GOP infinite: keyframes are sent only on demand (client join/reset, keyframe requests), which keeps bitrate and quality steady."
+  },
+  {
+    group: "Steam",
+    setting: ["--video-min-qp", "SELKIES_VIDEO_MIN_QP"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["0 to 51"],
+    Description: "CBR-mode minimum quantizer on the H.264 QP scale, mapped onto each codec's own quantizer range (0 = encoder default). Raising it caps bit spend on easy content when the bitrate budget is generous."
+  },  
+  {
+    group: "Steam",
+    setting: ["--video-max-qp", "SELKIES_VIDEO_MAX_QP"],
+	Default: "SELKIES_VIDEO_MAX_QP",
+	Choicetype: ["int"],
+    Choice: ["0 to 51"],
+    Description: "CBR-mode maximum quantizer on the H.264 QP scale, mapped onto each codec's own quantizer range (0 = encoder default). Lowering it keeps screen text legible under motion at the cost of overshooting the bitrate target on hard content (measured at 720p60 scrolling text: 35 lifts x264 by ~19 dB at ~2.5x the target)."
+  },  
+  {
+    group: "Steam",
+    setting: ["--jpeg-quality", "SELKIES_JPEG_QUALITY"],
+	Default: "40",
+	Choicetype: ["range"],
+    Choice: ["within 1-100"],
+    Description: "JPEG quality: allowed range (e.g., \"1-100\"), initial value (e.g., \"40\"), or both (\"40,1-100\"); \"40-40\" locks."
+  },
+  {
+    group: "Steam",
+    setting: ["--video-streaming-mode", "SELKIES_VIDEO_STREAMING_MODE"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable video streaming mode (Turbo: encode every frame like a traditional video encoder) for pixelflux encoders."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--use-paint-over-quality", "SELKIES_USE_PAINT_OVER_QUALITY"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable high-quality paint-over for static scenes."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--paint-over-jpeg-quality", "SELKIES_PAINT_OVER_JPEG_QUALITY"],
+	Default: "90",
+	Choicetype: ["range"],
+    Choice: ["within 1-100"],
+    Description: "JPEG paint-over quality: allowed range, initial value, or both (\"90,1-100\"); \"90-90\" locks."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--video-paintover-crf", "SELKIES_VIDEO_PAINTOVER_CRF"],
+	Default: "18",
+	Choicetype: ["range"],
+    Choice: ["within 5-50"],
+    Description: "H.264 paint-over CRF: allowed range, initial value, or both (\"18,5-50\"); \"18-18\" locks."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--video-paintover-burst-frames", "SELKIES_VIDEO_PAINTOVER_BURST_FRAMES"],
+	Default: "5",
+	Choicetype: ["range"],
+    Choice: ["within 1-30"],
+    Description: "H.264 paint-over burst frames: allowed range, initial value, or both (\"5,1-30\"); \"5-5\" locks."
+  },   
+  {
+    group: "Steam",
+    setting: ["--use-cpu", "SELKIES_USE_CPU"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Force CPU-based encoding for pixelflux."
+  },
+  {
+    group: "Steam",
+    setting: ["--gpu-id", "SELKIES_GPU_ID"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: [""],
+    Description: "GPU ID for hardware video encoders: selects /dev/dri/renderD{128 + n} and the GPU-stats index. Empty (default) sets no explicit pick, encoding on ID 0 — the first GPU — or on the GPU chosen by --auto-gpu; -1 disables hardware encoding. Ignored when --encode-dri specifies a device path."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--encode-dri", "SELKIES_ENCODE_DRI"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to the DRI render node the ENCODER uses (VA-API/NVENC device selection)."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--webrtc-pacer", "SELKIES_WEBRTC_PACER"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Pace outgoing WebRTC packets per transport with strict priorities (audio/RTCP > data-channel > video), an IDR-aware video queue budget and GOP-reset recovery, so audio and interactive signaling are protected from video bursts on congested links. Enabled by default; set SELKIES_WEBRTC_PACER=false to disable. SELKIES_WEBRTC_PACER_STALE_MS sets the stale-GOP purge deadline in milliseconds (0 = disabled)."
+  }, 
+  {
+    group: "Steam",
+    setting: ["--backpressure-queue-size", "SELKIES_BACKPRESSURE_QUEUE_SIZE"],
+	Default: "120",
+	Choicetype: ["int"],
+    Choice: ["1 to 100000"],
+    Description: "Max frames/audio chunks buffered per stream before dropping under backpressure (WebSockets mode). Higher tolerates larger client hiccups at the cost of latency."
+  }, 
+    {
+    group: "Audio",
+    setting: ["--audio-enabled", "SELKIES_AUDIO_ENABLED"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable server-to-client audio streaming. Disabling this will also disable microphone support."
+  },
+  {
+    group: "Audio",
+    setting: ["--audio-bitrate", "SELKIES_AUDIO_BITRATE"],
+	Default: "128000",
+	Choicetype: ["enum: one of", "or any value from 6000 to 510000"],
+    Choice: ["32000", "48000", "64000", "96000", "128000", "192000", "256000", "320000", "384000", "510000"],
+    Description: "The default audio bitrate."
+  },
+  {
+    group: "Audio",
+    setting: ["--audio-channels", "SELKIES_AUDIO_CHANNELS"],
+	Default: "2",
+	Choicetype: ["int"],
+    Choice: ["from 1"],
+    Description: "Number of audio channels, defaults to stereo (2 channels)"
+  },  
+  {
+    group: "Audio",
+    setting: ["--audio-device-name", "SELKIES_AUDIO_DEVICE_NAME"],
+	Default: "output.monitor",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Audio device name for pcmflux capture."
+  },
+  {
+    group: "Audio",
+    setting: ["--audio-frame-duration-ms", "SELKIES_AUDIO_FRAME_DURATION_MS"],
+	Default: "10",
+	Choicetype: ["enum: one of"],
+    Choice: ["2.5,", "5", "10", "20", "40", "60"],
+    Description: "Opus frame duration in milliseconds for server-to-client audio. Lower values cut audio latency (each frame must fill before it can be sent, and the client buffers a fixed number of frames) at a small bitrate-efficiency and packet-rate cost. On WebRTC the SDP ptime/minptime follow this value."
+  },  
+  {
+    group: "Audio",
+    setting: ["--audio-redundancy", "SELKIES_AUDIO_REDUNDANCY"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable Opus RED (RFC 2198) audio redundancy to cut dropouts/concealment under packet loss. On by default; carries prior frames as redundancy on WebRTC (browsers de-RED natively, plain-opus fallback for peers that decline) and, on WebSocket, is gated on every client supporting it."
+  },
+  {
+    group: "Audio",
+    setting: ["--audio-redundancy-distance", "SELKIES_AUDIO_REDUNDANCY_DISTANCE"],
+	Default: "2",
+	Choicetype: ["int"],
+    Choice: ["0 to 4"],
+    Description: "Number of prior Opus frames carried as RED redundancy when audio_redundancy is enabled (0-4; higher survives longer loss bursts at proportionally more bandwidth)."
+  },  
+  {
+    group: "Audio",
+    setting: ["--microphone-enabled", "SELKIES_MICROPHONE_ENABLED"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable client-to-server microphone forwarding."
+  },
+  {
+    group: "Display",
+    setting: ["--enable-resize", "SELKIES_ENABLE_RESIZE"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable dynamic resizing to match browser size"
+  },  
+  {
+    group: "Display",
+    setting: ["--manual-resolution", "SELKIES_MANUAL_RESOLUTION"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Lock the resolution to the manual width/height values."
+  },
+  {
+    group: "Display",
+    setting: ["--manual-width", "SELKIES_MANUAL_WIDTH"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Lock width to a fixed value. Setting this forces manual resolution mode."
+  },
+  {
+    group: "Display",
+    setting: ["--manual-height", "SELKIES_MANUAL_HEIGHT"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Lock height to a fixed value. Setting this forces manual resolution mode."
+  },
+  {
+    group: "Display",
+    setting: ["--force-aligned-resolution", "SELKIES_FORCE_ALIGNED_RESOLUTION"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Forces the display resolution to be a multiple of 16 pixels."
+  },
+  {
+    group: "Display",
+    setting: ["--scaling-dpi", "SELKIES_SCALING_DPI"],
+	Default: "96",
+	Choicetype: ["enum: one of"],
+    Choice: ["96", "120", "144", "168", "192", "216", "240", "264", "288"],
+    Description: "The default DPI for UI scaling."
+  },  
+  {
+    group: "Display",
+    setting: ["--use-css-scaling", "SELKIES_USE_CSS_SCALING"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "HiDPI when false, if true a lower resolution is sent from the client and the canvas is stretched; the UI scaling pick then divides that resolution and the desktop stays at 96 DPI."
+  },
+  {
+    group: "Display",
+    setting: ["--second-screen", "SELKIES_SECOND_SCREEN"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable support for a second monitor/display."
+  },  
+  {
+    group: "Display",
+    setting: ["--enable-cursors", "SELKIES_ENABLE_CURSORS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable passing remote cursors to client"
+  },
+  {
+    group: "Display",
+    setting: ["--cursor-size", "SELKIES_CURSOR_SIZE", "XCURSOR_SIZE"],
+	Default: "-1",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Cursor size in points at 96 DPI (scaled with the session DPI) for the X11 server cursor and the Wayland compositor cursor theme; -1 uses the platform default (32 on X11, 24 on Wayland). Independent of it, remote-cursor capture delivers an application's own cursor whole up to 128 points, the most a browser shows as a cursor, and a size set here beyond that raises the cap with it."
+  },
+  {
+    group: "Display",
+    setting: ["--use-browser-cursors", "SELKIES_USE_BROWSER_CURSORS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Use browser CSS cursors instead of rendering to canvas."
+  },  
+  {
+    group: "Display",
+    setting: ["--raw-pointer-motion", "SELKIES_RAW_POINTER_MOTION"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Ask the browser for unaccelerated (raw) pointer movement under pointer lock, so a locked pointer travels by the mouse's own counts rather than the local acceleration curve; Windows and macOS grant it, Linux and Android refuse it and keep the curve either way. Clients leave it off on macOS unless it is chosen or set here, since that curve is what carries a slow hand across the remote screen. Clients may override per user unless the value is locked."
+  },
+  {
+    group: "Display",
+    setting: ["--watermark-path", "SELKIES_WATERMARK_PATH", "WATERMARK_PNG"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Absolute path to the watermark PNG file."
+  },  
+  {
+    group: "Display",
+    setting: ["--watermark-location", "SELKIES_WATERMARK_LOCATION", "WATERMARK_LOCATION"],
+	Default: "-1",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Watermark location enum (0-6)."
+  },
+  {
+    group: "Display",
+    setting: ["--debug-cursors", "SELKIES_DEBUG_CURSORS"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable cursor debug logging"
+  },
+  {
+    group: "Backends",
+    setting: ["--wayland", "SELKIES_WAYLAND", "PIXELFLUX_WAYLAND"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Run the Wayland (headless compositor) backend instead of X11 capture/input (default: X11); PIXELFLUX_WAYLAND remains as a legacy fallback."
+  },  
+  {
+    group: "Backends",
+    setting: ["--render-dri", "SELKIES_RENDER_DRI", "DRINODE"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to the DRI render node the Wayland compositor RENDERS on (defaults to auto_gpu selection, else software rendering)."
+  },
+  {
+    group: "Backends",
+    setting: ["--auto-gpu", "SELKIES_AUTO_GPU", "AUTO_GPU"],
+	Default: "true",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "GPU auto-selection for rendering, enabled by default: \"true\" picks the first GPU; \"false\" disables it; otherwise a case-insensitive token picks the first GPU it matches — a vendor name (nvidia, amd/ati, intel, arm/mali, qualcomm/adreno, broadcom/videocore, apple, imagination/powervr, vmware, virtio, ...), a kernel driver name (amdgpu, i915, xe, nouveau, panfrost, msm, v3d, ...), a devicetree vendor prefix (qcom, rockchip, brcm, ...), or a raw PCI vendor ID (0x10de)."
+  },  
+  {
+    group: "Backends",
+    setting: ["--app-wayland-display", "SELKIES_APP_WAYLAND_DISPLAY"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Wayland socket where applications run — the target for input injection and clipboard — when it differs from the pixelflux capture compositor (e.g. a nested session that pixelflux captures). Empty auto-detects the nested compositor socket in XDG_RUNTIME_DIR, falling back to the capture compositor when nothing is nested."
+  },
+  {
+    group: "Backends",
+    setting: ["--wayland-host-display", "SELKIES_WAYLAND_HOST_DISPLAY"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Wayland socket of an EXTERNAL compositor (e.g. labwc started with WLR_BACKENDS=headless, or the GNOME/KDE session's own socket) that pixelflux captures and injects into as a client, instead of compositing its own. Frames arrive by screencopy into pixelflux-allocated GPU buffers (zero-copy into the encoder) and input rides virtual-keyboard/pointer devices where the compositor offers those protocols; a compositor without them (GNOME, KDE) is captured and driven through xdg-desktop-portal over the session bus, PipeWire frames imported in place. Empty keeps the built-in compositor."
+  },
+  {
+    group: "Backends",
+    setting: ["--wayland-socket-index", "SELKIES_WAYLAND_SOCKET_INDEX"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["from 0"],
+    Description: "Index for the Wayland command socket (e.g. 0 for wayland-0)."
+  },
+  {
+    group: "Backends",
+    setting: ["--computer-use-bind", "SELKIES_COMPUTER_USE_BIND"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Start pixelflux's Computer-Use HTTP server on comma-separated entries: a bare port listens on the loopback addresses only, host:port names the address to listen on (0.0.0.0:9500,[::]:9500 accepts connections on every interface). Empty leaves it off; the PIXELFLUX_CU environment variable remains the standalone fallback."
+  },  
+  {
+    group: "Session-start",
+    setting: ["--video-on-start", "SELKIES_VIDEO_ON_START"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Start a session with the display's video stream on. Off, nothing is captured for the primary display until the client turns video on with the side menu toggle; a shared viewer and a second display page always start their stream."
+  },
+  {
+    group: "Session-start",
+    setting: ["--audio-on-start", "SELKIES_AUDIO_ON_START"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Start a session with server-to-client audio on. Off, the audio capture stays stopped until the client turns audio on with the side menu toggle; on WebRTC the audio track is negotiated but carries nothing until then. Unlike audio_enabled=false, nothing is torn down and the microphone keeps working."
+  },
+  {
+    group: "Session-start",
+    setting: ["--microphone-on-start", "SELKIES_MICROPHONE_ON_START"],
+	Default: "false",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Microphone uplink policy: \"true\" asks the browser for the device as soon as the session connects, \"false\" waits for the side menu toggle, and \"demand\" asks only while an application in the session records from the virtual source, released ten seconds after the last one stops (an application that records in the background and mutes in software keeps it asked for). A microphone_enabled locked off leaves it off either way."
+  },
+  {
+    group: "Session-start",
+    setting: ["--webcam-on-start", "SELKIES_WEBCAM_ON_START"],
+	Default: "false",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Webcam uplink policy: \"true\" asks the browser for the camera as soon as the session connects, \"false\" waits for the side menu toggle, and \"demand\" asks only while an application in the session holds the virtual device open, released two seconds after the last one closes it; the device then exists before any uplink, so a webcam_pixel_format of \"auto\" resolves to I420. A webcam_enabled locked off leaves it off either way."
+  },
+  {
+    group: "Session-start",
+    setting: ["--gamepad-on-start", "SELKIES_GAMEPAD_ON_START"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Start a session with gamepad input on. Off, connected gamepads are not polled until the client turns them on with the side menu toggle; a choice made there is remembered by the browser and takes precedence on its later visits."
+  },
+  {
+    group: "Session-start",
+    setting: ["--app-wait-ready", "SELKIES_APP_WAIT_READY"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Waits for --app-ready-file to exist before starting stream if set to \"true\""
+  },
+  {
+    group: "Session-start",
+    setting: ["--app-ready-file", "SELKIES_APP_READY_FILE"],
+	Default: "/tmp/selkies-appready",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "File set by sidecar used to indicate that app is initialized and ready"
+  },
+  {
+    group: "Session-start",
+    setting: ["--run-after-connect", "SELKIES_RUN_AFTER_CONNECT"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Shell command run after the first client has connected ('' = off); runs again each time a client connects while no others are connected."
+  },
+  {
+    group: "Session-start",
+    setting: ["--run-after-disconnect", "SELKIES_RUN_AFTER_DISCONNECT"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Shell command run after the last client has disconnected ('' = off), including on server shutdown while clients are connected."
+  },
+  {
+    group: "Input",
+    setting: ["--gamepad-enabled", "SELKIES_GAMEPAD_ENABLED"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable gamepad support."
+  },
+  {
+    group: "Input",
+    setting: ["--uinput-gamepad", "SELKIES_UINPUT_GAMEPAD"],
+	Default: "auto",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Register gamepads as kernel devices through /dev/uinput, which applications (Steam, Proton, in-desktop browsers) find without the Input Interposer or fake-udev: \"auto\" does so only where the interposer is not configured for the session and /dev/uinput is writable — typically a desktop host rather than a container — while \"true\" always attempts it and \"false\" never does."
+  },
+  {
+    group: "Input",
+    setting: ["--js-socket-path", "SELKIES_JS_SOCKET_PATH"],
+	Default: "/tmp",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Directory to write the Selkies Input Interposer communication sockets to, default: /tmp, results in socket files: /tmp/selkies_js{0-3}.sock"
+  },
+  {
+    group: "Input",
+    setting: ["--uinput-mouse-socket", "SELKIES_UINPUT_MOUSE_SOCKET"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to the uinput mouse socket, if not provided uinput is used directly"
+  },
+  {
+    group: "Input",
+    setting: ["--publish-input-devices", "SELKIES_PUBLISH_INPUT_DEVICES"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Mirror the session keyboard and pointer onto input devices applications can read, for the few that enumerate evdev instead of the display server (fullscreen games, remappers). The desktop is driven by the compositor's virtual keyboard or XTEST either way, so this adds a copy of each event and never carries it; it costs a kernel device where /dev/uinput is writable, else an Input Interposer one."
+  },
+  {
+    group: "Input",
+    setting: ["--keyboard-shortcuts", "SELKIES_KEYBOARD_SHORTCUTS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Let the client keep its own chords (Control+Shift with F, M, X, or G, and Control+Shift+click) instead of passing them to the session. Turn it off where an application in the session binds the same chords; the side menu's buttons still reach every function, and pressing Escape three times still leaves gaming mode. Clients may override per user unless the value is locked."
+  },
+  {
+    group: "Input",
+    setting: ["--mac-cmd-as-ctrl", "SELKIES_MAC_CMD_AS_CTRL"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Send a macOS client's Command chords as their Control chords, so Cmd+C copies in the remote application the way it does locally. Turn it off where the session's window manager takes Super as its own modifier: remapped, a Cmd+Return bound to open a terminal arrives as Ctrl+Return, and Cmd+C interrupts the foreground program instead of copying. Command then arrives as the Super it physically is. Only macOS clients read it. Clients may override per user unless the value is locked."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--enable-clipboard", "SELKIES_ENABLE_CLIPBOARD"],
+	Default: "true",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Clipboard policy for both transports: \"true\" (both directions), \"in\" (client-to-server only), \"out\" (server-to-client only), \"false\" (disabled). \"out\" is what stops the page reading the local clipboard at all, which is the read Firefox and Safari raise their paste prompt for; the dashboard's clipboard box still sends."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--enable-binary-clipboard", "SELKIES_ENABLE_BINARY_CLIPBOARD"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Allow binary data (e.g., images) on the clipboard."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--clipboard-seamless", "SELKIES_CLIPBOARD_SEAMLESS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Synchronize the clipboard as the session and the browser change it, so a copy on either side is ready to paste on the other without asking. Turn it off to move clipboard content only when the user asks for it, through the side menu's clipboard box, which suits a session whose content should not follow the user out of it by accident. The direction settings still bound what moves either way. Clients may override per user unless the value is locked."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--file-transfers", "SELKIES_FILE_TRANSFERS"],
+	Default: "upload,download",
+	Choicetype: ["list"],
+    Choice: ["upload, download", "upload", "download", "none"],
+    Description: "Allowed file transfer directions (comma-separated: \"upload,download\"). Set to \"\" or \"none\" to disable."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--file-manager-path", "SELKIES_FILE_MANAGER_PATH", "FILE_MANAGER_PATH"],
+	Default: "~/Desktop",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Directory for client file transfers on both transports: uploads land here and the file-browser/download API serves it (created at startup if missing)."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--file-transfer-limit-mbps", "SELKIES_FILE_TRANSFER_LIMIT_MBPS"],
+	Default: "0.0",
+	Choicetype: ["float"],
+    Choice: ["from 0.0"],
+    Description: "Static file-transfer throttle in Mbit/s, one allowance shared by all downloads and uploads, for links whose rate the operator knows. 0 disables. The congestion-control pacing protects the video stream without it, in both directions and end to end through a reverse proxy; the cap is for holding transfers to a fixed share regardless."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--printing-enabled", "SELKIES_PRINTING_ENABLED"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Hand the documents printed in the session to the browser: a job printed to the session's Selkies queue lands in the print spool as a PDF, and the page opens it in the browser's print dialog. Off refuses the documents and shows no printer section."
+  },
+  {
+    group: "Clipboard-files-and-printing",
+    setting: ["--print-spool-path", "SELKIES_PRINT_SPOOL_PATH"],
+	Default: "~/.local/state/selkies/print",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Directory the session's print queue writes finished jobs into as PDFs, watched for documents to hand to the browser and created at startup when missing; a document is removed once a page has taken it."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-enabled", "SELKIES_WEBCAM_ENABLED"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable client-to-server webcam forwarding to the virtual V4L2 device."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-encoder", "SELKIES_WEBCAM_ENCODER"],
+	Default: "auto",
+	Choicetype: ["enum: one of"],
+    Choice: ["auto", "h264", "h265", "vp8", "vp9", "av1", "mjpeg"],
+    Description: "Codec clients encode the webcam uplink with. Over WebSockets \"auto\" runs the measured ladder (H.264, else VP8, then VP9, AV1, and H.265 where the engine encodes them, JPEG when none keeps up) on engines that stream camera frames through MediaStreamTrackProcessor, and JPEG on the <video>-element path (Firefox): its software encoders can hold the camera rate while costing a full core, which no client-side probe can price. A codec name runs that one codec on every path, trading client CPU for a fraction of the uplink bandwidth, still falling to JPEG where it cannot keep up or encodes the wrong colors; \"mjpeg\" pins JPEG everywhere. Over WebRTC the browser sends its camera as the named codec when the answer negotiated it, and otherwise, as for \"auto\" and \"mjpeg\", as the first codec negotiated. Clients may override per user unless the value is locked."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-width", "SELKIES_WEBCAM_WIDTH"],
+	Default: "1280",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Width of the virtual webcam device; client camera frames are scaled and letterboxed to fit."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-height", "SELKIES_WEBCAM_HEIGHT"],
+	Default: "720",
+	Choicetype: ["int"],
+    Choice: ["int"],
+    Description: "Height of the virtual webcam device; client camera frames are scaled and letterboxed to fit."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-pixel-format", "SELKIES_WEBCAM_PIXEL_FORMAT"],
+	Default: "auto",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Pixel format of the virtual webcam device. \"auto\" follows the uplink: a browser sending JPEG (no WebCodecs) gets an MJPEG device that carries its frames as received, any other uplink an I420 device, and a later uplink of the other kind re-creates the device for itself while no application is reading it. Or pin \"I420\" (planar 4:2:0, the browsers' preference), \"NV12\", \"YUYV\", or \"MJPEG\", which is then kept whatever arrives."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-device", "SELKIES_WEBCAM_DEVICE"],
+	Default: "auto",
+	Default: "auto",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Also mirror the webcam into a v4l2loopback kernel device, which applications find without the V4L2 Interposer: \"auto\" uses the first v4l2loopback output device found (typically a desktop host or privileged container), a path such as \"/dev/video10\" uses that device, and \"false\" never does. The interposer socket is always served."
+  },
+  {
+    group: "Webcam",
+    setting: ["--webcam-socket-path", "SELKIES_WEBCAM_SOCKET_PATH"],
+	Default: "/tmp",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Directory to write the Selkies V4L2 Interposer webcam socket to, default: /tmp, results in socket file: /tmp/selkies_webcam0.sock"
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-sharing", "SELKIES_ENABLE_SHARING"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Master toggle for all sharing features."
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-shared", "SELKIES_ENABLE_SHARED"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable view-only sharing links."
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-collab", "SELKIES_ENABLE_COLLAB"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Let a viewer holding the session's master-key token act as a read-write collaborator (secure mode only; not a sharing link of its own)."
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-player2", "SELKIES_ENABLE_PLAYER2"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable sharing link for gamepad player 2."
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-player3", "SELKIES_ENABLE_PLAYER3"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable sharing link for gamepad player 3."
+  },
+  {
+    group: "Sharing",
+    setting: ["--enable-player4", "SELKIES_ENABLE_PLAYER4"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable sharing link for gamepad player 4."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-title", "SELKIES_UI_TITLE"],
+	Default: "Selkies",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Title in top left corner of sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-show-logo", "SELKIES_UI_SHOW_LOGO"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the Selkies logo in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-show-sidebar", "SELKIES_UI_SHOW_SIDEBAR"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the main sidebar UI."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-show-core-buttons", "SELKIES_UI_SHOW_CORE_BUTTONS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the core components buttons display, audio, microphone, webcam, and gamepad."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-video-settings", "SELKIES_UI_SIDEBAR_SHOW_VIDEO_SETTINGS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the video settings section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-screen-settings", "SELKIES_UI_SIDEBAR_SHOW_SCREEN_SETTINGS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the screen settings section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-audio-settings", "SELKIES_UI_SIDEBAR_SHOW_AUDIO_SETTINGS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the audio settings section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-stats", "SELKIES_UI_SIDEBAR_SHOW_STATS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the stats section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-shortcuts", "SELKIES_UI_SIDEBAR_SHOW_SHORTCUTS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the keyboard shortcuts section in the sidebar (both dashboards honor this)."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-clipboard", "SELKIES_UI_SIDEBAR_SHOW_CLIPBOARD"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the clipboard section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-files", "SELKIES_UI_SIDEBAR_SHOW_FILES"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the file transfer section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-apps", "SELKIES_UI_SIDEBAR_SHOW_APPS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the applications section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-sharing", "SELKIES_UI_SIDEBAR_SHOW_SHARING"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the sharing section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-gamepads", "SELKIES_UI_SIDEBAR_SHOW_GAMEPADS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the gamepads section in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-webcam", "SELKIES_UI_SIDEBAR_SHOW_WEBCAM"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the webcam toggle among the core buttons (classic sidebar) and stream controls (wish top menu). Hides the control only; webcam_enabled governs whether the server accepts webcam frames."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-fullscreen", "SELKIES_UI_SIDEBAR_SHOW_FULLSCREEN"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the fullscreen button in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-gaming-mode", "SELKIES_UI_SIDEBAR_SHOW_GAMING_MODE"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the gaming mode button in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-trackpad", "SELKIES_UI_SIDEBAR_SHOW_TRACKPAD"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the virtual trackpad button in the sidebar."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-keyboard-button", "SELKIES_UI_SIDEBAR_SHOW_KEYBOARD_BUTTON"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the on-screen keyboard button in the display area."
+  },
+  {
+    group: "Client-interface",
+    setting: ["--ui-sidebar-show-soft-buttons", "SELKIES_UI_SIDEBAR_SHOW_SOFT_BUTTONS"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Show the soft buttons section in the sidebar."
+  },
+  {
+    group: "Server",
+    setting: ["--mode", "SELKIES_MODE"],
+	Default: "websockets",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Specify the mode: 'webrtc' or 'websockets'; defaults to websockets"
+  },
+  {
+    group: "Server",
+    setting: ["--enable-dual-mode", "SELKIES_ENABLE_DUAL_MODE"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable switching Streaming modes from UI"
+  },
+  {
+    group: "Server",
+    setting: ["--addr", "SELKIES_ADDR"],
+	Default: "localhost",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Address the streaming service listens on: a host name or IP address, or a comma-separated list of them, bound on every address each resolves to. The default binds the loopback addresses only (127.0.0.1,::1); to accept connections on every interface pass --public instead, never both."
+  },
+  {
+    group: "Server",
+    setting: ["--public", "SELKIES_PUBLIC"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Accept connections on every interface, IPv4 and IPv6 (0.0.0.0,::), instead of the loopback addresses only; the bare flag turns it on. Given together with --addr, the server refuses to start."
+  },
+  {
+    group: "Server",
+    setting: ["--port", "SELKIES_PORT", "CUSTOM_WS_PORT"],
+	Default: "8080",
+	Choicetype: ["int"],
+    Choice: ["1 to 65535"],
+    Description: "Port to start the streaming service, default: \"8080\""
+  },
+  {
+    group: "Server",
+    setting: ["--unix-socket", "SELKIES_UNIX_SOCKET"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Unix socket path to start the streaming service; when set, a Unix domain socket is bound instead of the TCP addr/port pair."
+  },
+  {
+    group: "Server",
+    setting: ["--subfolder", "SELKIES_SUBFOLDER", "SUBFOLDER"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "URL path prefix the server is reverse-proxied under; prepended to every route (websockets, tokens, metrics, static files). Slashes are optional, so \"desk\", \"/desk\", and \"/desk/\" are the same prefix and \"/\" is the root. The web client reads its own prefix from the URL it was loaded from, so only the server needs telling."
+  },
+  {
+    group: "Server",
+    setting: ["--web-root", "SELKIES_WEB_ROOT"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to directory containing web application files. Defaults to web files packaged with Selkies application"
+  },
+  {
+    group: "Server",
+    setting: ["--allowed-origins", "SELKIES_ALLOWED_ORIGINS"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Comma-separated browser Origins allowed to open the streaming WebSocket (cross-site WebSocket-hijacking guard). Empty (default) allows only same-origin plus non-browser clients that send no Origin; use '*' to allow any origin."
+  },
+  {
+    group: "Server",
+    setting: ["--enable-https", "SELKIES_ENABLE_HTTPS"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable or disable HTTPS for the web application, specifying a valid server certificate is recommended"
+  },
+  {
+    group: "Server",
+    setting: ["--https-cert", "SELKIES_HTTPS_CERT"],
+	Default: "/etc/ssl/certs/ssl-cert-snakeoil.pem",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to the TLS server certificate file when HTTPS is enabled"
+  },
+  {
+    group: "Server",
+    setting: ["--https-key", "SELKIES_HTTPS_KEY"],
+	Default: "/etc/ssl/private/ssl-cert-snakeoil.key",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Path to the TLS server private key file when HTTPS is enabled, set to an empty value if the private key is included in the certificate Never sent to clients."
+  },
+  {
+    group: "Server",
+    setting: ["--cert-reload-interval", "SELKIES_CERT_RELOAD_INTERVAL"],
+	Default: "30",
+	Choicetype: ["int"],
+    Choice: ["from 0"],
+    Description: "Seconds between checks for SSL certificate file changes when HTTPS is enabled, set to 0 to disable automatic certificate reloading"
+  },
+  {
+    group: "Server",
+    setting: ["--enable-basic-auth", "SELKIES_ENABLE_BASIC_AUTH"],
+	Default: "true",
+	Choicetype: ["bool"],
+    Choice: ["true", "false"],
+    Description: "Enable basic authentication on the server. On by default, and the server refuses to start until a password is set through --basic-auth-password, SELKIES_BASIC_AUTH_PASSWORD, PASSWORD or PASSWD; pass --enable-basic-auth=false to serve without a login instead."
+  },
+  {
+    group: "Server",
+    setting: ["--basic-auth-user", "SELKIES_BASIC_AUTH_USER", "CUSTOM_USER", "USERNAME", "USER"],
+	Default: "ubuntu",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Username for basic authentication; resolves from the CUSTOM_USER, then USERNAME, then USER environment variables, and defaults to \"ubuntu\" when none is set. Never sent to clients."
+  },
+  {
+    group: "Server",
+    setting: ["--basic-auth-password", "SELKIES_BASIC_AUTH_PASSWORD", "PASSWORD", "PASSWD"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Password used when basic authentication is set; resolves from SELKIES_BASIC_AUTH_PASSWORD, then PASSWORD, then PASSWD, so an image that already names a container account password does not have to repeat it. There is no default: the server will not start with basic authentication enabled until one of these is set. Never sent to clients."
+  },
+  {
+    group: "Server",
+    setting: ["--basic-auth-viewonly-password", "SELKIES_BASIC_AUTH_VIEWONLY_PASSWORD", "VIEWONLY_PASSWORD"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Optional second basic-auth password that grants view-only access. Clients authenticating with it are capped at the viewer role (no keyboard, mouse, clipboard, gamepad, or command input) regardless of the role they request, while the main password authorizes full control. Empty disables the split. Ignored in secure mode, where the master token governs roles. Never sent to clients."
+  },
+  {
+    group: "Server",
+    setting: ["--master-token", "SELKIES_MASTER_TOKEN"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Master token to enable secure mode and protect the control plane API. Never sent to clients."
+  },
+  {
+    group: "Server",
+    setting: ["--command-enabled", "SELKIES_COMMAND_ENABLED"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable parsing of command websocket messages. Disabled by default for security; opt in with SELKIES_COMMAND_ENABLED=true (or --command-enabled true)."
+  },
+  {
+    group: "Server",
+    setting: ["--debug", "SELKIES_DEBUG"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable debug logging."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--rtc-config-json", "SELKIES_RTC_CONFIG_JSON"],
+	Default: "/tmp/rtc.json",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "JSON file with WebRTC configuration to use, checked periodically, overriding all other STUN/TURN settings"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-host", "SELKIES_TURN_HOST"],
+	Default: "staticauth.openrelay.metered.ca",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "TURN host when generating RTC config from shared secret or using long-term credentials, IPv6 addresses must be enclosed with square brackets such as [::1]"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-port", "SELKIES_TURN_PORT"],
+	Default: "443",
+	Choicetype: ["int"],
+    Choice: ["1 to 65535"],
+    Description: "TURN port when generating RTC config from shared secret or using long-term credentials"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-protocol", "SELKIES_TURN_PROTOCOL"],
+	Default: "udp",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "TURN protocol for the client to use (\"udp\" or \"tcp\"), set to \"tcp\" without the quotes if \"udp\" is blocked on the network, \"udp\" is otherwise strongly recommended"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-tls", "SELKIES_TURN_TLS"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable or disable TURN over TLS (for the TCP protocol) or TURN over DTLS (for the UDP protocol), valid TURN server certificate required"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-shared-secret", "SELKIES_TURN_SHARED_SECRET"],
+	Default: "openrelayprojectsecret",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Shared TURN secret used to generate HMAC credentials, also requires --turn-host and --turn-port Never sent to clients."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-username", "SELKIES_TURN_USERNAME"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Legacy non-HMAC TURN credential username, also requires --turn-host and --turn-port"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-password", "SELKIES_TURN_PASSWORD"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Legacy non-HMAC TURN credential password, also requires --turn-host and --turn-port Never sent to clients."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-uri", "SELKIES_TURN_REST_URI"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "URI for TURN REST API service, example: http://localhost:8008"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-api-key", "SELKIES_TURN_REST_API_KEY"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "API key to pass to the TURN REST API service Never sent to clients."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-username", "SELKIES_TURN_REST_USERNAME"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Username sent to the TURN REST API service (x-auth-user header); the service embeds it in the HMAC credential. Empty (default) uses the generic 'selkies'."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-username-auth-header", "SELKIES_TURN_REST_USERNAME_AUTH_HEADER"],
+	Default: "x-auth-user",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Header to pass user to TURN REST API service"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-protocol-header", "SELKIES_TURN_REST_PROTOCOL_HEADER"],
+	Default: "x-turn-protocol",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Header to pass desired TURN protocol to TURN REST API service"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--turn-rest-tls-header", "SELKIES_TURN_REST_TLS_HEADER"],
+	Default: "x-turn-tls",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Header to pass TURN (D)TLS usage to TURN REST API service"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--stun-host", "SELKIES_STUN_HOST"],
+	Default: "stun.l.google.com",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "STUN host for NAT hole punching with WebRTC, change to your internal STUN/TURN server for local networks without internet, defaults to \"stun.l.google.com\""
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--stun-port", "SELKIES_STUN_PORT"],
+	Default: "19302",
+	Choicetype: ["int"],
+    Choice: ["1 to 65535"],
+    Description: "STUN port for NAT hole punching with WebRTC, change to your internal STUN/TURN server for local networks without internet, defaults to \"19302\""
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--enable-cloudflare-turn", "SELKIES_ENABLE_CLOUDFLARE_TURN"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable Cloudflare TURN service, requires SELKIES_CLOUDFLARE_TURN_TOKEN_ID, and SELKIES_CLOUDFLARE_TURN_API_TOKEN"
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--cloudflare-turn-token-id", "SELKIES_CLOUDFLARE_TURN_TOKEN_ID"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "The Cloudflare TURN App token ID. Never sent to clients."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--cloudflare-turn-api-token", "SELKIES_CLOUDFLARE_TURN_API_TOKEN"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "The Cloudflare TURN API token. Never sent to clients."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--webrtc-public-ip", "SELKIES_WEBRTC_PUBLIC_IP"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Public IP address(es) to advertise in WebRTC host ICE candidates (Pion-style NAT1TO1), for a host behind static 1:1 NAT such as a cloud instance whose private address maps to a fixed public/elastic IP with the WebRTC UDP ports forwarded. Accepts one IPv4 and/or one IPv6 address (comma- or space-separated); each replaces the private address of host candidates in its own family, while server-reflexive (STUN) and relay (TURN) candidates are left untouched so hole-punching and TURN fallback still work. Empty (default) keeps the gathered addresses unchanged."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--webrtc-port-range", "SELKIES_WEBRTC_PORT_RANGE"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Inclusive UDP port range \"min-max\" (e.g. \"50000-50100\") that the local sockets behind direct WebRTC host ICE candidates bind into, for scheduler-managed deployments that allot each session a small firewalled window. Both bounds must lie within 1024-65535; a malformed or out-of-range value is rejected rather than clamped. Distinct from TURN_MIN_PORT/TURN_MAX_PORT, which confine the TURN relay allocation on the TURN server. Empty (default) keeps ephemeral OS-assigned ports."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--webrtc-udp-mux-port", "SELKIES_WEBRTC_UDP_MUX_PORT"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["0 to 65535"],
+    Description: "Single UDP port every WebRTC session shares for its host ICE candidates (UDPMUX): bound once on each host address at startup, with sessions told apart by their ICE username fragment, so one forwarded port (e.g. \"-p 59000:59000/udp\") serves any number of sessions. STUN server-reflexive discovery rides the same port; TURN relay and mDNS sockets stay separate, and webrtc_port_range is unused. 0 (default) gives each session sockets of its own."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--webrtc-tcp-mux-port", "SELKIES_WEBRTC_TCP_MUX_PORT"],
+	Default: "0",
+	Choicetype: ["int"],
+    Choice: ["0 to 65535"],
+    Description: "Single TCP port on which the server accepts ICE-TCP connections (TCPMUX), advertised as a passive TCP host candidate on each host address next to the UDP ones, so a client on a network that blocks UDP still connects; UDP is preferred whenever it works. It may equal the UDP mux port, and a port firewalls pass, such as 443, is the usual choice for a public deployment. 0 (default) offers no TCP candidates."
+  },
+  {
+    group: "WebRTC-and-TURN",
+    setting: ["--webrtc-ice-lite", "SELKIES_WEBRTC_ICE_LITE"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Run the server's ICE agent as ICE-lite: it offers host candidates only, takes the controlled role and answers the client's connectivity checks instead of sending its own, which suits a server whose host candidates are reachable as advertised (a public address, a static 1:1 NAT with webrtc_public_ip, or forwarded mux ports). STUN and TURN are then unused by the server itself; clients still receive them for candidates of their own."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--recording-socket", "SELKIES_RECORDING_SOCKET", "PIXELFLUX_RECORDING_SOCKET"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Unix socket path for the out-of-band H.264 recording tap ('' = off); pixelflux binds it and multiplexes the elementary stream to connected clients."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--audit-webhook-url", "SELKIES_AUDIT_WEBHOOK_URL"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "URL that receives one JSON POST per clipboard transfer, file upload, file download, printed document handed over, page connection, and recording, carrying metadata only (the event, an RFC 3339 timestamp, byte size, MIME type, or file name) and never the content. Events are delivered in order over one keep-alive connection; a collector that is slow or down loses what overflows the queue rather than stalling the session. Empty (default) sends nothing."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--audit-webhook-token", "SELKIES_AUDIT_WEBHOOK_TOKEN"],
+	Default: "(empty)",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Bearer token sent in the Authorization header of every audit POST. Empty sends no header. Never sent to clients."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--audit-webhook-timeout", "SELKIES_AUDIT_WEBHOOK_TIMEOUT"],
+	Default: "2.0",
+	Choicetype: ["float"],
+    Choice: ["from 0.1"],
+    Description: "Seconds one audit POST may take before it counts as failed and the next event is sent."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--enable-metrics-http", "SELKIES_ENABLE_METRICS_HTTP"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable the Prometheus HTTP /metrics endpoint."
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--enable-webrtc-statistics", "SELKIES_ENABLE_WEBRTC_STATISTICS"],
+	Default: "false",
+	Choicetype: ["bool"],
+    Choice: ["false", "true"],
+    Description: "Enable WebRTC Statistics CSV dumping to the directory --webrtc-statistics-dir with filenames selkies-stats-video-[timestamp].csv and selkies-stats-audio-[timestamp].csv"
+  },
+  {
+    group: "Recording-audit-and-metrics",
+    setting: ["--webrtc-statistics-dir", "SELKIES_WEBRTC_STATISTICS_DIR"],
+	Default: "/tmp",
+	Choicetype: ["str"],
+    Choice: ["str"],
+    Description: "Directory to save WebRTC Statistics CSV from client with filenames selkies-stats-video-[timestamp].csv and selkies-stats-audio-[timestamp].csv"
+  },
+
+];
+
+
+readtheparamData();
+
+</script>
+
+</body>
+</html>
